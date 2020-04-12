@@ -6,7 +6,7 @@ import './Header.scss';
 const links = {
     speakers: 'Speakers',
     events: 'Events',
-    // clock: 'Clock',
+    clock: 'Clock',
 }
 
 const Header = () => {
@@ -26,10 +26,10 @@ const Header = () => {
                             <Link className="HeaderMain-NavLink"
                                 to="/speakers">{links.speakers}</Link>
                         </li>
-                        {/* <li className="HeaderMain-NavListItem">
+                        <li className="HeaderMain-NavListItem">
                             <Link className="HeaderMain-NavLink"
                                 to="/clock">{links.clock}</Link>
-                        </li> */}
+                        </li>
                     </ul>
                 </nav>
             </div>
