@@ -40,7 +40,7 @@ const InfoBox = (props) => {
             {displaySubheader(props)}
             <p className="InfoBox-About">{props.about}</p>
             <div className="InfoBox-Footer">
-                <a href="#" className="InfoBox-BtnJoin">Prijavi se na predavanje</a>
+                <a href="#" className="InfoBox-BtnJoin">{props.btnText}</a>
             </div>
         </div>
     );
