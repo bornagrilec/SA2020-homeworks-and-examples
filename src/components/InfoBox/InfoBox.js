@@ -1,5 +1,18 @@
 import React from 'react';
-import './InfoBox.scss';
+import {
+    InfoBoxWrapper,
+    InfoBoxHeader,
+    InfoBoxIcon,
+    InfoBoxAbout,
+    InfoBoxBtnJoin,
+    InfoBoxFooter,
+    InfoBoxSubheader,
+    InfoBoxSubheaderBox,
+    InfoBoxSubheaderFigure,
+    InfoBoxSubheaderImg,
+    InfoBoxTitle,
+    InfoBoxSubheaderBoxText,
+} from './InfoBoxStyles';
 
 // Icons
 import IconLocation from '../../assets/img/location-icon.png';
@@ -10,20 +23,20 @@ const displaySubheader = (props) => {
 
     if (!props.typeSpeakers) {
         content = (
-            <div className="InfoBox-Subheader">
-                <div className="InfoBox-SubheaderBox">
-                    <figure className="InfoBox-SubheaderFigure">
-                        <img className="InfoBox-SubheaderImg" src={IconLocation} alt="Location icon" />
-                    </figure>
-                    <span className="InfoBox-SubheaderBoxText">{props.location}</span>
-                </div>
-                <div className="InfoBox-SubheaderBox">
-                    <figure className="InfoBox-SubheaderFigure">
-                        <img className="InfoBox-SubheaderImg" src={IconTime} alt="Time icon" />
-                    </figure>
-                    <span className="InfoBox-SubheaderBoxText">{props.dateTime}</span>
-                </div>
-            </div>
+            <InfoBoxSubheader>
+                <InfoBoxSubheaderBox>
+                    <InfoBoxSubheaderFigure>
+                        <InfoBoxSubheaderImg src={IconLocation} alt="Location icon" />
+                    </InfoBoxSubheaderFigure>
+                    <InfoBoxSubheaderBoxText>{props.location}</InfoBoxSubheaderBoxText>
+                </InfoBoxSubheaderBox>
+                <InfoBoxSubheaderBox>
+                    <InfoBoxSubheaderFigure>
+                        <InfoBoxSubheaderImg src={IconTime} alt="Time icon" />
+                    </InfoBoxSubheaderFigure>
+                    <InfoBoxSubheaderBoxText>{props.dateTime}</InfoBoxSubheaderBoxText>
+                </InfoBoxSubheaderBox>
+            </InfoBoxSubheader>
         );
     }
 
@@ -32,17 +45,17 @@ const displaySubheader = (props) => {
 
 const InfoBox = (props) => {
     return (
-        <div className="InfoBox">
-            <div className="InfoBox-Header">
-                <div className={"InfoBox-Icon " + (props.typeSpeakers ? "InfoBox-IconType-speaker" : "InfoBox-IconType-event")}></div>
-                <h2 className="InfoBox-Title">{props.title}</h2>
-            </div>
+        <InfoBoxWrapper>
+            <InfoBoxHeader>
+                <InfoBoxIcon iconUrl={props.icon} />
+                <InfoBoxTitle>{props.title}</InfoBoxTitle>
+            </InfoBoxHeader>
             {displaySubheader(props)}
-            <p className="InfoBox-About">{props.about}</p>
-            <div className="InfoBox-Footer">
-                <a href="#" className="InfoBox-BtnJoin">{props.btnText}</a>
-            </div>
-        </div>
+            <InfoBoxAbout>{props.about}</InfoBoxAbout>
+            <InfoBoxFooter>
+                <InfoBoxBtnJoin href="#">{props.btnText}</InfoBoxBtnJoin>
+            </InfoBoxFooter>
+        </InfoBoxWrapper>
     );
 }
 
