@@ -8,6 +8,8 @@ import InfoBox from '../components/InfoBox/InfoBox';
 import Loader from '../components/Loader/Loader';
 import SearchBar from '../components/SearchBar/SearchBar';
 
+import Top from '../components/Top/Top';
+
 const Events = () => {
     const [events, setEvents] = useState('');
     const [filteredEvents, setFilteredEvents] = useState('');
@@ -27,6 +29,7 @@ const Events = () => {
     return (
         <>
             <PageTitle>Events</PageTitle>
+            <Top />
             <SearchBar
                 placeholder="Search events..."
                 disabled={events ? false : true}
