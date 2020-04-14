@@ -7,7 +7,7 @@ const Card = (props) => {
             <figure className="Card-Figure">
                 <img className="Card-Image" src={props.image} alt={props.alt} />
             </figure>
-            <p class="Card-Title">{props.children}</p>
+            <p className="Card-Title">{props.children}</p>
         </a>
     );
 }
