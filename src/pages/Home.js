@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Progress from 'rsup-progress';
 
 //Components
 import Hero from '../components/Hero/Hero';
@@ -15,6 +16,18 @@ import ImgAgenda from '../assets/img/calendar.jpg';
 import ImgPartner from '../assets/img/partner.jpg';
 
 const Home = () => {
+    const progress = new Progress({
+        height: 5,
+        color: '#BF283D',
+    });
+
+    useEffect(() => {
+        progress.start()
+        setTimeout(() => {
+            progress.end();
+        }, 1000)
+    }, []);
+
     return (
         <>
             <Hero />
