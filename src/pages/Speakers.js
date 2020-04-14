@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import speakersMock from '../lib/speakers';
+import speakersMock from '../lib/mock/speakers';
 
 // Components
 import PageTitle from '../components/PageTitle/PageTitle';

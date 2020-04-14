@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import eventsMock from '../lib/events';
+import eventsMock from '../lib/mock/events';
 
 // Components
 import PageTitle from '../components/PageTitle/PageTitle';
