@@ -8,6 +8,9 @@ import InfoBox from '../components/InfoBox/InfoBox';
 import Loader from '../components/Loader/Loader';
 import SearchBar from '../components/SearchBar/SearchBar';
 
+// Images 
+import IconSpeaker from '../assets/img/speakers-icon.png';
+
 const Speakers = () => {
     // We need to have initial states for speakers and filteredSpeakers.
     // This is because if we filter initial state of speakers, our array of object
@@ -44,6 +47,7 @@ const Speakers = () => {
                     speakers.map((speaker, index) => (
                         <InfoBox
                             key={index}
+                            icon={IconSpeaker}
                             title={speaker.title}
                             about={speaker.about}
                             btnText="Follow speaker"

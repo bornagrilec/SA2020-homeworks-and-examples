@@ -8,6 +8,9 @@ import InfoBox from '../components/InfoBox/InfoBox';
 import Loader from '../components/Loader/Loader';
 import SearchBar from '../components/SearchBar/SearchBar';
 
+// Images
+import IconEvent from '../assets/img/event-icon.png';
+
 const Events = () => {
     const [events, setEvents] = useState('');
     const [filteredEvents, setFilteredEvents] = useState('');
@@ -37,6 +40,7 @@ const Events = () => {
                     events.map((event, index) => (
                         <InfoBox
                             key={index}
+                            icon={IconEvent}
                             title={event.title}
                             location={event.location}
                             dateTime={event.dateTime}
