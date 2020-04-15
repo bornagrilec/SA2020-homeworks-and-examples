@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Main = styled.main`
+    width: 100%;
+    overflow: hidden;
+    margin-top: 80px;
+`;
+
 export const Btn = styled.a`
     display: block;
     width: 160px;

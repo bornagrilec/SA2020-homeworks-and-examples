@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
+import { Main } from './lib/styles/GeneralStyles';
 
 // Components
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 
 // Pages
 import Home from './pages/Home';
