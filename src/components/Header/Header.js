@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../assets/img/logo.png';
 import './Header.scss';
 
@@ -18,12 +18,12 @@ const Header = () => {
                 <nav className="HeaderMain-Nav">
                     <ul className="HeaderMain-NavList">
                         <li className="HeaderMain-NavListItem">
-                            <Link className="HeaderMain-NavLink"
-                                to="/events">{links.events}</Link>
+                            <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
+                                to="/events">{links.events}</NavLink>
                         </li>
                         <li className="HeaderMain-NavListItem">
-                            <Link className="HeaderMain-NavLink"
-                                to="/speakers">{links.speakers}</Link>
+                            <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
+                                to="/speakers">{links.speakers}</NavLink>
                         </li>
                     </ul>
                 </nav>
