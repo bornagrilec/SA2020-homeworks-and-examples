@@ -6,6 +6,7 @@ import './Header.scss';
 const links = {
     speakers: 'Speakers',
     events: 'Events',
+    todos: 'Todos',
 }
 
 const Header = () => {
@@ -24,6 +25,10 @@ const Header = () => {
                         <li className="HeaderMain-NavListItem">
                             <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
                                 to="/speakers">{links.speakers}</NavLink>
+                        </li>
+                        <li className="HeaderMain-NavListItem">
+                            <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
+                                to="/todos">{links.todos}</NavLink>
                         </li>
                     </ul>
                 </nav>
