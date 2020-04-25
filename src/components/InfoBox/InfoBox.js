@@ -34,7 +34,7 @@ const InfoBox = (props) => {
     return (
         <div className="InfoBox">
             <div className="InfoBox-Header">
-                <div className={"InfoBox-Icon " + (props.typeSpeakers ? "InfoBox-IconType-speaker" : "InfoBox-IconType-event")}></div>
+                <div className={"InfoBox-Icon " + (props.typeSpeakers ? "InfoBox-IconType_speaker" : "InfoBox-IconType_event")}></div>
                 <h2 className="InfoBox-Title">{props.title}</h2>
             </div>
             {displaySubheader(props)}
