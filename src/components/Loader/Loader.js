@@ -1,12 +1,13 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import './Loader.scss';
+
+import { LoaderContainer } from './LoaderStyle';
 
 const DotsLoader = () => {
     return (
-        <div className="LoaderContainer">
+        <LoaderContainer>
             <Loader type="ThreeDots" color="#c59613" width={80} height={80} />
-        </div>
+        </LoaderContainer>
     );
 }
 

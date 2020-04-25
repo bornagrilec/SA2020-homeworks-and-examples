@@ -1,15 +1,15 @@
 import React from 'react';
-import './SearchBar.scss';
+import { SearchBarWrapper, SearchBarInput } from './SearchBarStyle';
 
 const SearchBar = (props) => {
     return (
-        <div className="SearchBar">
-            <input className="SearchBar-Input"
+        <SearchBarWrapper>
+            <SearchBarInput
                 type="text"
                 placeholder={props.placeholder}
                 disabled={props.disabled}
                 onChange={(event) => props.onValueChange(event.target.value)} />
-        </div>
+        </SearchBarWrapper>
     );
 }
 

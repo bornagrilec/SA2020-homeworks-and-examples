@@ -1,7 +1,17 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Logo from '../../assets/img/logo.png';
-import './Header.scss';
+
+import {
+    HeaderMain,
+    HeaderMainInner,
+    HeaderMainNav,
+    HeaderMainNavList,
+    HeaderMainNavListItem,
+    HeaderMainNavLink,
+    LogoContainerLink,
+    LogoContainerImage
+} from './HeaderStyle';
+
+import ImgLogo from '../../assets/img/logo.png';
 
 const links = {
     speakers: 'Speakers',
@@ -10,25 +20,25 @@ const links = {
 
 const Header = () => {
     return (
-        <header className="HeaderMain">
-            <div className="HeaderMain-Inner">
-                <Link to="/" className="LogoContainer">
-                    <img className="LogoContainer-Image" src={Logo} alt="Logo" />
-                </Link>
-                <nav className="HeaderMain-Nav">
-                    <ul className="HeaderMain-NavList">
-                        <li className="HeaderMain-NavListItem">
-                            <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
-                                to="/events">{links.events}</NavLink>
-                        </li>
-                        <li className="HeaderMain-NavListItem">
-                            <NavLink className="HeaderMain-NavLink" activeClassName="IsActiveNavLink"
-                                to="/speakers">{links.speakers}</NavLink>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <HeaderMain>
+            <HeaderMainInner>
+                <LogoContainerLink to="/">
+                    <LogoContainerImage src={ImgLogo} alt="Logo" />
+                </LogoContainerLink>
+                <HeaderMainNav>
+                    <HeaderMainNavList>
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to="/events">{links.events}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to="/speakers">{links.speakers}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                    </HeaderMainNavList>
+                </HeaderMainNav>
+            </HeaderMainInner>
+        </HeaderMain>
     );
 }
 

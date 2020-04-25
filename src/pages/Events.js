@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import eventsMock from '../lib/mock/events';
+import { PageTitle } from '../lib/styles/GeneralStyles';
 
 // Components
-import PageTitle from '../components/PageTitle/PageTitle';
 import SectionGrid from '../components/SectionGrid/SectionGrid';
 import InfoBox from '../components/InfoBox/InfoBox';
 import Loader from '../components/Loader/Loader';

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import Progress from 'rsup-progress';
 
+import { Section } from '../lib/styles/GeneralStyles';
+
 //Components
 import Hero from '../components/Hero/Hero';
-import SectionMore from '../components/SectionMore/SectionMore';
 import About from '../components/About/About';
 import CardsContainer from '../components/CardsContainer/CardsContainer';
 import Card from '../components/Card/Card';
@@ -31,7 +32,7 @@ const Home = () => {
     return (
         <>
             <Hero />
-            <SectionMore>
+            <Section>
                 <About />
                 <CardsContainer>
                     <Card image={ImgAbout} alt="About">O tjednu karijera</Card>
@@ -39,7 +40,7 @@ const Home = () => {
                     <Card image={ImgAgenda} alt="Agenda">Raspored</Card>
                     <Card image={ImgPartner} alt="Partners">Partneri</Card>
                 </CardsContainer>
-            </SectionMore>
+            </Section>
             <SectionLastYear />
         </>
     );

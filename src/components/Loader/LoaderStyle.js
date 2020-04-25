@@ -1,4 +1,6 @@
-.LoaderContainer {
+import styled from 'styled-components';
+
+export const LoaderContainer = styled.div`
     position: absolute;
     top: 0;
     right: 0;
@@ -7,4 +9,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+`;

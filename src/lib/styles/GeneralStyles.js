@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom'
 
 export const Main = styled.main`
     width: 100%;
@@ -6,7 +7,17 @@ export const Main = styled.main`
     margin-top: 80px;
 `;
 
-export const Btn = styled.a`
+export const Section = styled.section`
+    padding: 70px 0;
+`;
+
+export const PageTitle = styled.h1`
+    text-align: center;
+    padding: 30px 0 60px;
+    font-size: 30px;
+`;
+
+export const Btn = styled(NavLink)`
     display: block;
     width: 160px;
     line-height: 40px;

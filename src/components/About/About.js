@@ -11,7 +11,7 @@ const About = () => {
             Latin words, consectetur, from a Lorem Ipsum passage, and going through the
             cites of the word in classical literature, discovered the undoubtable source.
             </AboutParagraph>
-            <AboutBtn href="#">Saznaj više</AboutBtn>
+            <AboutBtn to="/">Saznaj više</AboutBtn>
         </AboutWrapper>
     );
 }
