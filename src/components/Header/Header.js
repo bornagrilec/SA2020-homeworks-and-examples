@@ -13,9 +13,13 @@ import {
 
 import ImgLogo from '../../assets/img/logo.png';
 
+// Object key is name of route
+// Object value is name shown on link in UI
 const links = {
     speakers: 'Speakers',
     events: 'Events',
+    register: 'Register',
+    login: 'Login',
 }
 
 const Header = () => {
@@ -27,14 +31,13 @@ const Header = () => {
                 </LogoContainerLink>
                 <HeaderMainNav>
                     <HeaderMainNavList>
-                        <HeaderMainNavListItem>
-                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
-                                to="/events">{links.events}</HeaderMainNavLink>
-                        </HeaderMainNavListItem>
-                        <HeaderMainNavListItem>
-                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
-                                to="/speakers">{links.speakers}</HeaderMainNavLink>
-                        </HeaderMainNavListItem>
+                        {/* Iterate through links object and return navigation list items with object data */}
+                        {Object.keys(links).map(key => (
+                            <HeaderMainNavListItem>
+                                <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                    to={`/${key}`}>{links[key]}</HeaderMainNavLink>
+                            </HeaderMainNavListItem>
+                        ))}
                     </HeaderMainNavList>
                 </HeaderMainNav>
             </HeaderMainInner>
