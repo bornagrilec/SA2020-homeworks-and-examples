@@ -20,9 +20,17 @@ const links = {
     events: 'Events',
     register: 'Register',
     login: 'Login',
+    logout: 'Logout',
 }
 
-const Header = () => {
+const Header = (props) => {
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        props.onAuthChange(false);
+    }
+
     return (
         <HeaderMain>
             <HeaderMainInner>
@@ -32,12 +40,37 @@ const Header = () => {
                 <HeaderMainNav>
                     <HeaderMainNavList>
                         {/* Iterate through links object and return navigation list items with object data */}
-                        {Object.keys(links).map(key => (
-                            <HeaderMainNavListItem>
+                        {/* {Object.keys(links).map(key => (
+                            <HeaderMainNavListItem key={key}>
                                 <HeaderMainNavLink activeClassName="IsActiveNavLink"
                                     to={`/${key}`}>{links[key]}</HeaderMainNavLink>
                             </HeaderMainNavListItem>
-                        ))}
+                        ))} */}
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to={`/speakers`}>{links.speakers}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to={`/events`}>{links.events}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                        {!props.isAuthenticated ?
+                            <>
+                                <HeaderMainNavListItem>
+                                    <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                        to={`/register`}>{links.register}</HeaderMainNavLink>
+                                </HeaderMainNavListItem>
+                                <HeaderMainNavListItem>
+                                    <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                        to={`/login`}>{links.login}</HeaderMainNavLink>
+                                </HeaderMainNavListItem>
+                            </>
+                            :
+                            <HeaderMainNavListItem>
+                                <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                    to={`/logout`} onClick={handleLogout}>{links.logout}</HeaderMainNavLink>
+                            </HeaderMainNavListItem>
+                        }
                     </HeaderMainNavList>
                 </HeaderMainNav>
             </HeaderMainInner>
