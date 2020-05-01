@@ -1,10 +1,11 @@
 import React from 'react';
-import { SearchBarWrapper, SearchBarInput } from './SearchBarStyle';
+import { SearchBarWrapper } from './SearchBarStyle';
+import { FormInput } from '../Form/FormStyles';
 
 const SearchBar = (props) => {
     return (
         <SearchBarWrapper>
-            <SearchBarInput
+            <FormInput
                 type="text"
                 placeholder={props.placeholder}
                 disabled={props.disabled}
