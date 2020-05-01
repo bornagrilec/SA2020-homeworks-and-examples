@@ -17,7 +17,7 @@ export const PageTitle = styled.h1`
     font-size: 30px;
 `;
 
-export const Btn = styled(NavLink)`
+export const Button = styled.button`
     display: block;
     width: 160px;
     line-height: 40px;
@@ -26,8 +26,43 @@ export const Btn = styled(NavLink)`
     background-color: #c59613;
     border-radius: 6px;
     font-weight: 700;
+    font-size: 16px;
     color: #fff;
     transition: all 0.3s ease-out;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: #9e7911;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+`;
+
+export const ButtonHref = styled(Button)``;
+
+export const ButtonNavLink = styled(NavLink)`
+    display: block;
+    width: 160px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #c59613;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease-out;
+
+    &:focus {
+        outline: none;
+    }
 
     &:hover {
         background-color: #9e7911;

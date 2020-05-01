@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Btn } from '../../lib/styles/GeneralStyles';
+import { ButtonNavLink } from '../../lib/styles/GeneralStyles';
 
 export const SectionHeroWrapper = styled.section`
     position: relative;
@@ -46,6 +46,6 @@ export const SectionHeroDate = styled.p`
     margin-bottom: 20px;
 `;
 
-export const SectionHeroBtn = styled(Btn)`
+export const SectionHeroBtn = styled(ButtonNavLink)`
     margin: 0 auto;
 `;

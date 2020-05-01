@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Btn } from '../../lib/styles/GeneralStyles';
+import { ButtonNavLink } from '../../lib/styles/GeneralStyles';
 
 export const AboutWrapper = styled.div`
     margin-bottom: 70px;
@@ -12,7 +12,7 @@ export const AboutParagraph = styled.p`
     text-align: center;
 `;
 
-export const AboutBtn = styled(Btn)`
+export const AboutBtn = styled(ButtonNavLink)`
     margin: 0 auto;
 `;
 

@@ -11,6 +11,7 @@ export const SectionGridWrapper = styled.section`
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         max-width: 1024px;
+        padding: 0 15px 10px;
     }
     
     @media only screen and (min-width: 768px){
@@ -19,6 +20,6 @@ export const SectionGridWrapper = styled.section`
     
     @media only screen and (min-width: 1024px){
         gap: 30px;
-        padding: 0;
+        padding: 0 0 10px;
     }
 `;
