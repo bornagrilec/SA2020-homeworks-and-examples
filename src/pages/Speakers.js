@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import speakersMock from '../lib/mock/speakers';
+import { getSpeakers } from '../api/speakers';
 import { PageTitle } from '../lib/styles/GeneralStyles';
 
 // Components
@@ -11,7 +11,7 @@ import SearchBar from '../components/SearchBar/SearchBar';
 // Images 
 import IconSpeaker from '../assets/img/speakers-icon.png';
 
-const Speakers = () => {
+const Speakers = (props) => {
     // We need to have initial states for speakers and filteredSpeakers.
     // This is because if we filter initial state of speakers, our array of object
     // will exclude items from the original array according to serach result. 
@@ -24,10 +24,11 @@ const Speakers = () => {
     const [filteredSpeakers, setFilteredSpeakers] = useState('');
 
     useEffect(() => {
-        setTimeout(() => {
-            setSpeakers(speakersMock);
-            setFilteredSpeakers(speakersMock);
-        }, 1000)
+        getSpeakers(localStorage.getItem('token')).then(res => {
+            const speakers = res.speakers;
+            setSpeakers(speakers);
+            setFilteredSpeakers(speakers);
+        });
     }, []);
 
     const handleSearch = (value) => {
@@ -44,9 +45,9 @@ const Speakers = () => {
                 onValueChange={handleSearch} />
             <SectionGrid>
                 {speakers ? (
-                    speakers.map((speaker, index) => (
+                    speakers.map(speaker => (
                         <InfoBox
-                            key={index}
+                            key={speaker._id}
                             icon={IconSpeaker}
                             title={speaker.title}
                             about={speaker.about}

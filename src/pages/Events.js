@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import eventsMock from '../lib/mock/events';
+import { getEvents } from '../api/events';
 import { PageTitle } from '../lib/styles/GeneralStyles';
 
 // Components
@@ -16,10 +16,14 @@ const Events = () => {
     const [filteredEvents, setFilteredEvents] = useState('');
 
     useEffect(() => {
-        setTimeout(() => {
-            setEvents(eventsMock);
-            setFilteredEvents(eventsMock);
-        }, 1000)
+        // setTimeout(() => {
+        //     setEvents(eventsMock);
+        //     setFilteredEvents(eventsMock);
+        // }, 1000)
+        getEvents(localStorage.getItem('token')).then(({ events }) => {
+            setEvents(events);
+            setFilteredEvents(events);
+        })
     }, []);
 
     const handleSearch = (value) => {
@@ -37,9 +41,9 @@ const Events = () => {
             />
             <SectionGrid>
                 {events ? (
-                    events.map((event, index) => (
+                    events.map(event => (
                         <InfoBox
-                            key={index}
+                            key={event._id}
                             icon={IconEvent}
                             title={event.title}
                             location={event.location}
