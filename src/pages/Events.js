@@ -16,10 +16,6 @@ const Events = () => {
     const [filteredEvents, setFilteredEvents] = useState('');
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setEvents(eventsMock);
-        //     setFilteredEvents(eventsMock);
-        // }, 1000)
         getEvents(localStorage.getItem('token')).then(({ events }) => {
             setEvents(events);
             setFilteredEvents(events);
