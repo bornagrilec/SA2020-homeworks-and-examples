@@ -1,8 +1,8 @@
 import React from 'react';
-import './SectionGrid.scss';
+import { SectionGridWrapper } from './SectionGridStyles';
 
 const SectionGrid = (props) => {
-    return <section className="SectionGrid">{props.children}</section>;
+    return <SectionGridWrapper>{props.children}</SectionGridWrapper>;
 }
 
 export default SectionGrid;

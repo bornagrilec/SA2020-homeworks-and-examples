@@ -1,11 +1,11 @@
 import React from 'react';
-import './CardsContainer.scss';
+import { CardsContainerWrapper } from './CardsContainerStyle';
 
 const CardsContainer = (props) => {
     return (
-        <div className="CardsContainer">
+        <CardsContainerWrapper>
             {props.children}
-        </div>
+        </CardsContainerWrapper>
     );
 }
 

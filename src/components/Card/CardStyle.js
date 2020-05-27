@@ -1,4 +1,7 @@
-.Card {
+import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+
+export const CardLink = styled(NavLink)`
     width: calc(25% - 11.25px);
     margin-right: 15px;
     margin-bottom: 40px;
@@ -16,22 +19,22 @@
     &:last-of-type {
         margin-right: 0;
     }
+`;
 
-    &-Figure {
-        width: 100%;
-        height: 250px;
-        margin-bottom: 25px;
-    }
+export const CardFigure = styled.figure`
+    width: 100%;
+    height: 250px;
+    margin-bottom: 25px;
+`;
 
-    &-Image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+export const CardImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
 
-    &-Title {
-        font-size: 25px;
-        font-weight: 700;
-        text-align: center;
-    }
-}
+export const CardTitle = styled.p`
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+`;
