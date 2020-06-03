@@ -20,6 +20,7 @@ const links = {
     speakers: 'Speakers',
     events: 'Events',
     register: 'Register',
+    all: 'All',
     login: 'Login',
     logout: 'Logout',
 }
@@ -55,6 +56,10 @@ const Header = (props) => {
                         <HeaderMainNavListItem>
                             <HeaderMainNavLink activeClassName="IsActiveNavLink"
                                 to={`/events`}>{links.events}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to={`/all`}>{links.all}</HeaderMainNavLink>
                         </HeaderMainNavListItem>
                         {!isAuthenticated ?
                             <>
