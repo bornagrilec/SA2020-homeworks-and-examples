@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
+import { observer } from 'mobx-react-lite';
+import { storeContext } from '../../../context/StoreContext';
 import { useHistory } from 'react-router-dom';
 import { postEvent } from '../../../api/events';
-import { AuthContext } from '../../../context/AuthContext';
 
 import Loader from '../../Loader/Loader';
 
@@ -18,6 +19,7 @@ import {
 
 const AddEvent = (props) => {
     const history = useHistory();
+    const store = useContext(storeContext);
     const [eventData, setEventData] = useState({
         title: '',
         location: '',
@@ -44,6 +46,7 @@ const AddEvent = (props) => {
             const postedEvent = await postEvent(localStorage.getItem('token'), eventData);
 
             if (postedEvent) {
+                store.setEvent(postedEvent.event);
                 setSuccess(true);
                 setTimeout(() => {
                     history.push('/events');
@@ -114,4 +117,4 @@ const AddEvent = (props) => {
     );
 }
 
-export default AddEvent;
+export default observer(AddEvent);

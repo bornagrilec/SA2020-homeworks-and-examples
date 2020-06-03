@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { observer } from 'mobx-react-lite';
+import { storeContext } from '../context/StoreContext';
 import { getEvents } from '../api/events';
 import { PageTitle } from '../lib/styles/GeneralStyles';
 
@@ -12,14 +14,21 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import IconEvent from '../assets/img/event-icon.png';
 
 const Events = () => {
+    const store = useContext(storeContext);
     const [events, setEvents] = useState('');
     const [filteredEvents, setFilteredEvents] = useState('');
 
     useEffect(() => {
-        getEvents(localStorage.getItem('token')).then(({ events }) => {
-            setEvents(events);
-            setFilteredEvents(events);
-        })
+        if (store.events.length > 0) {
+            setEvents(store.events);
+            setFilteredEvents(store.events);
+        } else {
+            getEvents(localStorage.getItem('token')).then(({ events }) => {
+                setEvents(events);
+                setFilteredEvents(events);
+                store.setEvents(events);
+            })
+        }
     }, []);
 
     const handleSearch = (value) => {
@@ -55,4 +64,4 @@ const Events = () => {
     );
 }
 
-export default Events;
+export default observer(Events);

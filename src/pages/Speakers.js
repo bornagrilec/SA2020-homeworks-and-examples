@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { observer } from 'mobx-react-lite';
+import { storeContext } from '../context/StoreContext';
 import { getSpeakers } from "../api/speakers";
 import { PageTitle } from "../lib/styles/GeneralStyles";
 
@@ -23,12 +25,20 @@ const Speakers = (props) => {
   const [speakers, setSpeakers] = useState("");
   const [filteredSpeakers, setFilteredSpeakers] = useState("");
 
+  const store = useContext(storeContext);
+
   useEffect(() => {
-    getSpeakers(localStorage.getItem("token")).then((res) => {
-      const speakers = res.speakers;
-      setSpeakers(speakers);
-      setFilteredSpeakers(speakers);
-    });
+    if (store.speakers.length > 0) {
+      setSpeakers(store.speakers);
+      setFilteredSpeakers(store.speakers);
+    } else {
+      getSpeakers(localStorage.getItem("token")).then((res) => {
+        const speakers = res.speakers;
+        setSpeakers(speakers);
+        setFilteredSpeakers(speakers);
+        store.setSpeakers(speakers);
+      });
+    }
   }, []);
 
   const handleSearch = (value) => {
@@ -59,11 +69,11 @@ const Speakers = (props) => {
             />
           ))
         ) : (
-          <Loader />
-        )}
+            <Loader />
+          )}
       </SectionGrid>
     </>
   );
 };
 
-export default Speakers;
+export default observer(Speakers);
