@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { loginUser } from '../../../api/login';
+import { AuthContext } from '../../../context/AuthContext';
 
 import Loader from '../../Loader/Loader';
 
@@ -18,6 +19,7 @@ import {
 
 const LoginForm = (props) => {
     const history = useHistory();
+    const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
     const [userData, setUserData] = useState({
         username: '',
         password: '',
@@ -43,7 +45,8 @@ const LoginForm = (props) => {
             if (result.token) {
                 setSuccess(true);
                 localStorage.setItem('token', result.token);
-                props.onAuthChange(true);
+                //props.onAuthChange(true);
+                setIsAuthenticated(true);
 
                 setTimeout(() => {
                     history.push('/');

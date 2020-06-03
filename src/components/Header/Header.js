@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 import {
     HeaderMain,
@@ -24,11 +25,12 @@ const links = {
 }
 
 const Header = (props) => {
+    const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
     const handleLogout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
-        props.onAuthChange(false);
+        setIsAuthenticated(false);
     }
 
     return (
@@ -54,7 +56,7 @@ const Header = (props) => {
                             <HeaderMainNavLink activeClassName="IsActiveNavLink"
                                 to={`/events`}>{links.events}</HeaderMainNavLink>
                         </HeaderMainNavListItem>
-                        {!props.isAuthenticated ?
+                        {!isAuthenticated ?
                             <>
                                 <HeaderMainNavListItem>
                                     <HeaderMainNavLink activeClassName="IsActiveNavLink"
