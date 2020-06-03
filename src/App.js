@@ -14,6 +14,7 @@ import Speakers from "./pages/Speakers";
 import All from './pages/All';
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import AddEvent from "./pages/AddEvent";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
@@ -37,6 +38,7 @@ const App = () => {
             <PrivateRoute path="/events" component={Events} />
             <PrivateRoute path="/speakers" component={Speakers} />
             <PrivateRoute path="/all" component={All} />
+            <PrivateRoute path="/add-event" component={AddEvent} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
           </Main>

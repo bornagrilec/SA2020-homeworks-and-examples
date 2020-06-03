@@ -19,6 +19,7 @@ import ImgLogo from '../../assets/img/logo.png';
 const links = {
     speakers: 'Speakers',
     events: 'Events',
+    addEvent: 'AddEvent',
     register: 'Register',
     all: 'All',
     login: 'Login',
@@ -56,6 +57,10 @@ const Header = (props) => {
                         <HeaderMainNavListItem>
                             <HeaderMainNavLink activeClassName="IsActiveNavLink"
                                 to={`/events`}>{links.events}</HeaderMainNavLink>
+                        </HeaderMainNavListItem>
+                        <HeaderMainNavListItem>
+                            <HeaderMainNavLink activeClassName="IsActiveNavLink"
+                                to={`/add-event`}>{links.addEvent}</HeaderMainNavLink>
                         </HeaderMainNavListItem>
                         <HeaderMainNavListItem>
                             <HeaderMainNavLink activeClassName="IsActiveNavLink"
